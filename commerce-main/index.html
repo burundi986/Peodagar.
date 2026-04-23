@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peodagar | Premium Lifestyle Store</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .product-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background: #f5f5f7;
+    }
+    #accountLink {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .user-avatar-small {
+      width: 28px;
+      height: 28px;
+      background: #c27b3a;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav-bar container">
+      <div class="logo">✨ Peodagar</div>
+      <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="account.html" id="accountLink">
+          <i class="fas fa-user-circle"></i> 
+          <span id="accountText">Account</span>
+        </a></li>
+      </ul>
+      <div class="cart-icon">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Slider -->
+  <section class="hero-section">
+    <div class="slider-container" id="heroSlider">
+      <div class="slide active" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop');">
+        <div class="slide-content">
+          <h2>Timeless Elegance</h2>
+          <p>Discover our curated collection of premium lifestyle goods.</p>
+          <a href="shop.html" class="btn-primary">Shop Now →</a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920&h=1080&fit=crop');">
+        <div class="slide-content">
+          <h2>Modern Minimalism</h2>
+          <p>Where function meets form — luxury redefined.</p>
+          <a href="shop.html" class="btn-primary">Shop Now →</a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1920&h=1080&fit=crop');">
+        <div class="slide-content">
+          <h2>Artisan Craft</h2>
+          <p>Handpicked designs that inspire confidence.</p>
+          <a href="shop.html" class="btn-primary">Shop Now →</a>
+        </div>
+      </div>
+      <button class="slider-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+      <div class="dots" id="dotsContainer"></div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <main class="container">
+    <h2 class="section-title fade-in">Featured Collection</h2>
+    <div class="products-grid" id="featuredProducts"></div>
+    <div class="view-all-container">
+      <a href="shop.html" class="btn-secondary">View All Products →</a>
+    </div>
+  </main>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-truck"></i>
+          <h3>Free Shipping</h3>
+          <p>On orders over ₦50,000</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-undo-alt"></i>
+          <h3>30 Day Returns</h3>
+          <p>Hassle-free returns</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-lock"></i>
+          <h3>Secure Payment</h3>
+          <p>100% secure transactions</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-headset"></i>
+          <h3>24/7 Support</h3>
+          <p>Dedicated customer service</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h3>Stay in the Loop</h3>
+      <p>Subscribe for exclusive offers and new arrivals</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Peodagar.</h4>
+          <p>Premium essentials for the modern lifestyle.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <p><a href="about.html">About Us</a></p>
+          <p><a href="contact.html">Contact</a></p>
+          <p><a href="account.html">My Account</a></p>
+          <p><a href="#">Shipping Info</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><i class="fas fa-phone"></i> +2349075048891</p>
+          <p><i class="fas fa-envelope"></i> hello@luxe.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 LUXE — All rights reserved</div>
+    </div>
+  </footer>
+  <!-- Hidden Admin Access (Only you know about this) -->
+<div style="display: none;">
+  <a href="admin/login.html" id="secretAdminLink">.</a>
+</div>
+
+<script>
+  // Double-click the logo to go to admin (another secret method)
+  document.querySelector('.logo')?.addEventListener('dblclick', function(e) {
+    window.location.href = 'admin/login.html';
+  });
+</script>
+
+  <script>
+    // User Authentication System (must be loaded first)
+    function getUserDatabase() {
+      let users = localStorage.getItem('luxe_users');
+      if (!users) {
+        const defaultUsers = [
+          { id: 1, name: "John Doe", email: "john@example.com", password: "password123", role: "customer", phone: "", address: "", createdAt: new Date().toISOString() },
+          { id: 2, name: "Jane Smith", email: "jane@example.com", password: "password123", role: "customer", phone: "", address: "", createdAt: new Date().toISOString() }
+        ];
+        localStorage.setItem('luxe_users', JSON.stringify(defaultUsers));
+        return defaultUsers;
+      }
+      return JSON.parse(users);
+    }
+
+    function getCurrentUser() {
+      const userStr = localStorage.getItem('luxe_current_user');
+      if (!userStr) return null;
+      const user = JSON.parse(userStr);
+      const loginTime = new Date(user.loginTime);
+      const now = new Date();
+      const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
+      if (hoursDiff > 24) {
+        localStorage.removeItem('luxe_current_user');
+        return null;
+      }
+      return user;
+    }
+
+    function updateAccountButton() {
+      const user = getCurrentUser();
+      const accountText = document.getElementById('accountText');
+      if (user && accountText) {
+        accountText.innerHTML = `<span class="user-avatar-small">${user.name.charAt(0)}</span> ${user.name.split(' ')[0]}`;
+      } else if (accountText) {
+        accountText.innerHTML = 'Account';
+      }
+    }
+
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    // WhatsApp Configuration
+    const WHATSAPP_NUMBER = '2347088028747';
+
+    // Hero Slider Functionality
+    let currentSlide = 0;
+    let autoInterval;
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    const dotsContainer = document.getElementById('dotsContainer');
+
+    function updateSlides() {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+      updateDots();
+    }
+
+    function updateDots() {
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active-dot', idx === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlides();
+      resetAutoPlay();
+    }
+
+    function prevSlideFunc() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlides();
+      resetAutoPlay();
+    }
+
+    function resetAutoPlay() {
+      if (autoInterval) clearInterval(autoInterval);
+      autoInterval = setInterval(nextSlide, 5000);
+    }
+
+    if (prevBtn && nextBtn && slides.length) {
+      if (dotsContainer) {
+        slides.forEach((_, idx) => {
+          const dot = document.createElement('div');
+          dot.classList.add('dot');
+          dot.addEventListener('click', () => {
+            currentSlide = idx;
+            updateSlides();
+            resetAutoPlay();
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+      prevBtn.addEventListener('click', prevSlideFunc);
+      nextBtn.addEventListener('click', nextSlide);
+      updateSlides();
+      resetAutoPlay();
+      
+      let touchStartX = 0;
+      const sliderContainer = document.getElementById('heroSlider');
+      if (sliderContainer) {
+        sliderContainer.addEventListener('touchstart', (e) => { 
+          touchStartX = e.changedTouches[0].screenX; 
+        });
+        sliderContainer.addEventListener('touchend', (e) => {
+          const diff = e.changedTouches[0].screenX - touchStartX;
+          if (Math.abs(diff) > 50) {
+            diff > 0 ? prevSlideFunc() : nextSlide();
+            resetAutoPlay();
+          }
+        });
+      }
+    }
+
+    // Get products from localStorage
+    function getProducts() {
+      const products = localStorage.getItem('products');
+      if (products) {
+        return JSON.parse(products);
+      }
+      return [
+        { id: 1, name: "Aether Watch", price: 18900, description: "Sapphire glass, premium leather strap.", category: "Accessories", image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23c27b3a'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='16'%3EWatch%3C/text%3E%3C/svg%3E" },
+        { id: 2, name: "Minimalist Backpack", price: 24900, description: "Water-resistant, laptop compartment.", category: "Accessories", image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%234c9aff'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='14'%3EBackpack%3C/text%3E%3C/svg%3E" }
+      ];
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Load Featured Products
+    function loadFeaturedProducts() {
+      const products = getProducts();
+      const featuredGrid = document.getElementById('featuredProducts');
+      
+      if (featuredGrid) {
+        const featuredProducts = products.slice(0, 6);
+        
+        if (featuredProducts.length === 0) {
+          featuredGrid.innerHTML = '<div style="text-align:center; padding:60px;">No products available.</div>';
+          return;
+        }
+        
+        featuredGrid.innerHTML = featuredProducts.map(product => `
+          <div class="product-card fade-in">
+            <img class="product-img" src="${product.image}" alt="${escapeHtml(product.name)}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23ccc\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'white\' font-size=\'14\'%3ENo Image%3C/text%3E%3C/svg%3E'">
+            <div class="product-info">
+              <div class="product-name">${escapeHtml(product.name)}</div>
+              <div class="product-price">₦${product.price.toLocaleString()}</div>
+              <div class="product-desc">${escapeHtml(product.description.substring(0, 60))}${product.description.length > 60 ? '...' : ''}</div>
+              <div class="whatsapp-row">
+                <div class="qty-selector">
+                  <button class="qty-minus" data-id="${product.id}">−</button>
+                  <span class="qty-val" data-id="${product.id}">1</span>
+                  <button class="qty-plus" data-id="${product.id}">+</button>
+                </div>
+                <button class="btn-wa buy-wa" data-id="${product.id}" data-name="${escapeHtml(product.name)}" data-price="${product.price}">
+                  <i class="fab fa-whatsapp"></i> Buy
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        
+        attachWhatsAppHandlers();
+      }
+    }
+
+    function attachWhatsAppHandlers() {
+      document.querySelectorAll('.qty-minus').forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const id = btn.dataset.id;
+          const span = document.querySelector(`.qty-val[data-id="${id}"]`);
+          if (span) {
+            let val = parseInt(span.innerText);
+            if (val > 1) span.innerText = val - 1;
+          }
+        };
+      });
+      
+      document.querySelectorAll('.qty-plus').forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const id = btn.dataset.id;
+          const span = document.querySelector(`.qty-val[data-id="${id}"]`);
+          if (span) {
+            let val = parseInt(span.innerText);
+            span.innerText = val + 1;
+          }
+        };
+      });
+      
+      document.querySelectorAll('.buy-wa').forEach(btn => {
+        btn.onclick = () => {
+          const name = btn.dataset.name;
+          const price = parseInt(btn.dataset.price);
+          const id = btn.dataset.id;
+          const qtySpan = document.querySelector(`.qty-val[data-id="${id}"]`);
+          const quantity = qtySpan ? parseInt(qtySpan.innerText) : 1;
+          const message = `Hello! I'm interested in buying: ${name} (₦${price.toLocaleString()}) × ${quantity} unit(s). Please let me know how to proceed.`;
+          const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+          window.open(url, '_blank');
+        };
+      });
+    }
+
+    // Update cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const cartCountEl = document.getElementById('cartCount');
+      if (cartCountEl) cartCountEl.textContent = count;
+    }
+
+    // Newsletter Form
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thanks for subscribing! You\'ll receive our latest updates.');
+        newsletterForm.reset();
+      });
+    }
+
+    // Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadFeaturedProducts();
+      updateCartCount();
+      updateAccountButton();
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+
+    // Secret admin access (Ctrl+Shift+A)
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        window.location.href = 'admin/login.html';
+      }
+    });
+  </script>
+</body>
+</html>

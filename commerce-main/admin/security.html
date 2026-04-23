@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Settings | Peodagar Admin</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .admin-wrapper { display: flex; min-height: 100vh; }
+    .admin-sidebar { width: 280px; background: #1a1a2e; color: white; padding: 32px 24px; position: fixed; height: 100vh; }
+    .admin-main { flex: 1; margin-left: 280px; background: #f5f5f7; }
+    .admin-header { background: white; padding: 20px 32px; border-bottom: 1px solid #e0e0e0; }
+    .admin-content { padding: 32px; max-width: 800px; }
+    .security-card { background: white; border-radius: 20px; padding: 28px; margin-bottom: 24px; }
+    .security-card h3 { margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .setting-item { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
+    .setting-item:last-child { border-bottom: none; }
+    .toggle-switch { width: 50px; height: 26px; background: #ccc; border-radius: 26px; position: relative; cursor: pointer; transition: 0.2s; }
+    .toggle-switch.active { background: #c27b3a; }
+    .toggle-switch::after { content: ''; position: absolute; width: 22px; height: 22px; background: white; border-radius: 50%; top: 2px; left: 3px; transition: 0.2s; }
+    .toggle-switch.active::after { left: 25px; }
+    .btn-enable { background: #c27b3a; color: white; border: none; padding: 8px 20px; border-radius: 20px; cursor: pointer; }
+    .session-item { display: flex; justify-content: space-between; padding: 12px; background: #f8f9fa; border-radius: 12px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="admin-wrapper">
+    <aside class="admin-sidebar">
+      <div class="logo" style="color:white;">✨ LUXE.</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="products.html"><i class="fas fa-box"></i> Products</a>
+        <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+        <a href="security.html" class="active"><i class="fas fa-shield-alt"></i> Security</a>
+        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-header"><h2>Security Settings</h2></div>
+      <div class="admin-content">
+        <div class="security-card">
+          <h3><i class="fas fa-fingerprint"></i> Biometric Authentication</h3>
+          <div class="setting-item">
+            <div><strong>Enable Fingerprint/Face ID</strong><br><small>Use biometrics for quick login</small></div>
+            <div class="toggle-switch" id="biometricToggle"></div>
+          </div>
+          <div class="setting-item">
+            <div><strong>Setup Backup PIN</strong><br><small>6-digit PIN for fallback</small></div>
+            <button class="btn-enable" id="setupPinBtn">Setup PIN</button>
+          </div>
+        </div>
+        <div class="security-card">
+          <h3><i class="fas fa-shield-alt"></i> Two-Factor Authentication</h3>
+          <div class="setting-item">
+            <div><strong>2FA via Authenticator App</strong><br><small>Google Authenticator, Microsoft Authenticator</small></div>
+            <button class="btn-enable" id="enable2FABtn">Enable 2FA</button>
+          </div>
+          <div class="setting-item">
+            <div><strong>SMS Verification</strong><br><small>Receive codes via SMS</small></div>
+            <button class="btn-enable" id="enableSMSBtn">Add Phone Number</button>
+          </div>
+        </div>
+        <div class="security-card">
+          <h3><i class="fas fa-history"></i> Active Sessions</h3>
+          <div id="activeSessions"></div>
+          <button class="btn-enable" id="logoutAllBtn" style="margin-top:16px;">Logout All Other Devices</button>
+        </div>
+        <div class="security-card">
+          <h3><i class="fas fa-key"></i> Login Methods</h3>
+          <div class="setting-item">
+            <div><strong>Social Login</strong><br><small>Google, GitHub, Microsoft, Apple</small></div>
+            <div><span style="color:green;">✓ Connected</span></div>
+          </div>
+          <div class="setting-item">
+            <div><strong>Magic Link / Email OTP</strong><br><small>Passwordless email login</small></div>
+            <button class="btn-enable" id="enableMagicLinkBtn">Configure</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    if (!localStorage.getItem('adminLoggedIn')) window.location.href = 'login.html';
+    
+    // Load biometric setting
+    if (localStorage.getItem('biometricEnabled') === 'true') {
+      document.getElementById('biometricToggle').classList.add('active');
+    }
+    
+    document.getElementById('biometricToggle').addEventListener('click', function() {
+      this.classList.toggle('active');
+      localStorage.setItem('biometricEnabled', this.classList.contains('active'));
+      alert(this.classList.contains('active') ? 'Biometric login enabled!' : 'Biometric login disabled');
+    });
+    
+    document.getElementById('setupPinBtn').addEventListener('click', () => {
+      const pin = prompt("Set a 6-digit PIN:", "123456");
+      if (pin && pin.length === 6) {
+        localStorage.setItem('userPin', pin);
+        alert("PIN saved successfully!");
+      }
+    });
+    
+    document.getElementById('enable2FABtn').addEventListener('click', () => {
+      alert("2FA setup: Scan this QR code with Google Authenticator\n\nDemo QR: LUXE:admin@luxe.com");
+    });
+    
+    document.getElementById('enableSMSBtn').addEventListener('click', () => {
+      const phone = prompt("Enter phone number (e.g., +234XXXXXXXXXX):");
+      if (phone) {
+        localStorage.setItem('smsNumber', phone);
+        alert(`SMS verification enabled for ${phone}`);
+      }
+    });
+    
+    document.getElementById('enableMagicLinkBtn').addEventListener('click', () => {
+      alert("Magic link login configured! Check your email for login links.");
+    });
+    
+    // Active sessions
+    const sessions = [
+      { device: "Chrome on Windows", location: "Lagos, Nigeria", current: true, lastActive: "Now" },
+      { device: "Safari on iPhone", location: "Abuja, Nigeria", current: false, lastActive: "2 hours ago" },
+      { device: "Firefox on Mac", location: "London, UK", current: false, lastActive: "Yesterday" }
+    ];
+    
+    document.getElementById('activeSessions').innerHTML = sessions.map(s => `
+      <div class="session-item">
+        <div><strong>${s.device}</strong><br><small>${s.location} • ${s.lastActive}</small></div>
+        <div>${s.current ? '<span style="color:#c27b3a;">● Current</span>' : '<button class="btn-enable" style="padding:4px 12px;">Revoke</button>'}</div>
+      </div>
+    `).join('');
+    
+    document.getElementById('logoutAllBtn').addEventListener('click', () => {
+      alert("Logged out from all other devices");
+    });
+    
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('adminLoggedIn');
+      localStorage.removeItem('adminUser');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

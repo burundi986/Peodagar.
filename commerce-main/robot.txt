@@ -1,0 +1,21 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /admin/login.html
+Disallow: /admin/dashboard.html
+Disallow: /admin/products.html
+Disallow: /admin/orders.html
+Disallow: /admin/users.html
+Disallow: /admin/security.html
+
+# Allow public pages
+Allow: /
+Allow: /index.html
+Allow: /shop.html
+Allow: /about.html
+Allow: /contact.html
+
+# Crawl delay for performance
+Crawl-delay: 1
+
+# Sitemap location (create one if needed)
+# Sitemap: https://yoursite.com/sitemap.xml
