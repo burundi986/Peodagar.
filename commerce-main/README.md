@@ -1,4 +1,4 @@
-# LUXE E-Commerce Platform
+# Peodager E-Commerce Platform
 
 ## 🚀 Features
 - Full product catalog with filtering
@@ -17,5 +17,3 @@
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/luxe-ecommerce.git
-cd luxe-ecommerce
